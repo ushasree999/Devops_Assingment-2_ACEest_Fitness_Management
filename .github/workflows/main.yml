@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r C:\Users\H569136\OneDrive - wilp.bits-pilani.ac.in\WILP\SEMIII\DevOps\Devops_Assingment-2_ACEest_Fitness_Management\requirements.txt
 
       - name: Run Tests
         run: |
