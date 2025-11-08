@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Summary</title>
+</head>
+<body>
+    <h1>Workout Summary</h1>
+    {% for category, sessions in workouts.items() %}
+        <h2>{{ category }}</h2>
+        <ul>
+            {% for session in sessions %}
+                <li>{{ session.exercise }} - {{ session.duration }} min</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <h3>Total Time: {{ total_time }} minutes</h3>
+    <a href="/">Back to Home</a>
+</body>
+</html>
