@@ -7,4 +7,6 @@ def create_app():
     # Register Blueprints or routes
     with app.app_context():
         from . import routes
+        global workouts
+        workouts = routes.workouts
         return app
