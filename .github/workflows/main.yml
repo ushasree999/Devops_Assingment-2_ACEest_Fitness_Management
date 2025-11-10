@@ -48,7 +48,7 @@ jobs:
 
       - name: Initialize Elastic Beanstalk
         run: |
-          eb init -p docker aceest-fitness --region ${{ secrets.AWS_REGION }}
+          eb init -p docker Devops_Assingment-2_ACEest_Fitness_Management --region ${{ secrets.AWS_REGION }}
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
