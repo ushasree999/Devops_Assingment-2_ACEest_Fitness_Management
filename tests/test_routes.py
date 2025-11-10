@@ -3,8 +3,8 @@ from app import create_app
 
 @pytest.fixture
 def client():
-    create_app.config['TESTING'] = True
-    with create_app.test_client() as client:
+    app = create_app()  # Call the create_app function to create the app instance
+    with app.test_client() as client:  # Use the app instance to create a test client
         yield client
 
 def test_home_route(client):
