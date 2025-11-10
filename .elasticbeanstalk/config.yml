@@ -1,0 +1,9 @@
+branch-defaults:
+  default:
+    environment: flask-env
+global:
+  application_name: aceest-fitness
+  default_platform: Docker
+  default_region: ap-southeast-2
+  profile: null
+  workspace_type: Application
