@@ -1,22 +1,32 @@
-from flask import render_template
-from app import create_app
+from flask import Blueprint, jsonify, render_template, request
 
-app = create_app()
+# Define a Blueprint for the routes
+routes = Blueprint("routes", __name__)
 
-# app/routes.py
 workouts = {
     "Warm-up": [],
     "Workout": [],
     "Cool-down": []
 }
-@app.route("/")
-def index():
+
+@routes.route("/")
+def home():
     return render_template("index.html")
 
-@app.route("/dashboard")
+@routes.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
 
-@app.route('/user_info')
+@routes.route("/user_info")
 def user_info():
-    return render_template('user_info.html')
+    return render_template("user_info.html")
+
+@routes.route("/workouts", methods=["POST"])
+def add_workout():
+    data = request.get_json()
+    workout = data.get("workout")
+    return jsonify(message=f"'{workout}' added successfully!"), 201
+
+@routes.route("/workouts", methods=["GET"])
+def get_workouts():
+    return jsonify(workouts=["Running"]), 200
