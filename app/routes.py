@@ -30,3 +30,17 @@ def add_workout():
 @routes.route("/workouts", methods=["GET"])
 def get_workouts():
     return jsonify(workouts=["Running"]), 200
+
+@routes.route("/log_workout")
+def log_workout():
+    return render_template("log_workout.html")
+
+@routes.route("/view_summary")
+def view_summary():
+    workouts = {
+        "Warm-up": [{"exercise": "Stretching", "duration": 10}],
+        "Workout": [{"exercise": "Running", "duration": 30}],
+        "Cool-down": [{"exercise": "Yoga", "duration": 15}]
+    }
+    total_time = sum(session["duration"] for category in workouts.values() for session in category)
+    return render_template("view_summary.html", workouts=workouts, total_time=total_time)
